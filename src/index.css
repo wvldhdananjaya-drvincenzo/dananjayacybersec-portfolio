@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Google Sans", "Product Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Cal Sans", sans-serif;
+  --font-mono: "Google Sans", monospace;
+  --font-google-sans: "Google Sans", "Product Sans", system-ui, -apple-system, sans-serif;
+  --font-cal: "Cal Sans", sans-serif;
+  --font-cal-sans: "Cal Sans", sans-serif;
+}
+
+/* Explicit font family utilities */
+.font-cal,
+.font-cal-sans,
+.font-display {
+  font-family: 'Cal Sans', sans-serif !important;
+}
+
+.font-google-sans {
+  font-family: 'Google Sans', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Main font: Cal Sans for all Headings, Titles, Display Elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cal Sans', sans-serif !important;
+}
+
+/* Allow explicit override on headings with .font-google-sans if ever requested */
+h1.font-google-sans,
+h2.font-google-sans,
+h3.font-google-sans,
+h4.font-google-sans,
+h5.font-google-sans,
+h6.font-google-sans {
+  font-family: 'Google Sans', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Secondary font: Google Sans for all Body, UI, Controls, Paragraphs, Lists */
+html,
+body,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+td,
+th,
+div,
+.font-sans,
+.font-mono {
+  font-family: 'Google Sans', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Global High Resolution Rendering Performance Optimization */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #09090b;
+}
+
+/* Crisp image and vector rendering for high-DPI displays */
+img, svg, canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Hardware accelerated layer helper */
+.gpu-render {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Smooth carousel transitions */
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Print Media Styles for Curriculum Vitae / Resume Sheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  header, nav, footer, .print\\:hidden, #print-resume-btn, #download-resume-btn {
+    display: none !important;
+  }
+
+  #exact-cv-paper {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #resume-sheet-card {
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    page-break-inside: avoid !important;
+  }
+
+  .cv-left-col {
+    width: 38% !important;
+    flex-shrink: 0 !important;
+    background-color: #1c1c1e !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-right-col {
+    width: 62% !important;
+    flex-shrink: 0 !important;
+    background-color: #ffffff !important;
+    color: #171717 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+

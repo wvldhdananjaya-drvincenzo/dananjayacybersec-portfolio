@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Default Deny: all paths denied by default
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Public portfolio media assets - strictly read-only
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Admin uploads only
+    match /admin/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.token.admin == true;
+    }
+  }
+}

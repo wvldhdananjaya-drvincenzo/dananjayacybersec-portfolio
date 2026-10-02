@@ -1,0 +1,6 @@
+{
+  "name": "Dananjaya.sec",
+  "description": "Advanced offensive security, smart contract audits, red team campaigns, and zero-trust engineering portfolio of Dananjaya.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
